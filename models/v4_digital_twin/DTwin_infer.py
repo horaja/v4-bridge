@@ -281,14 +281,15 @@ class TorchModel(nn.Module):
         return x
 
 
-neuron_root = r'lineage_1\gen_1_folder\imgset\gen_1_image_shade'
-img_all = []
-for neuron in os.listdir(neuron_root):
-    neuron_path = os.path.join(neuron_root,neuron)
-    # print(neuron_path)
-    mat = scio.loadmat(neuron_path)
-    mat = mat['imgset']
-    mat = np.array(mat)
-    img_all.append(mat)
-img_all = np.array(img_all)
-print(img_all.shape)
+if __name__ == "__main__":
+    neuron_root = r'lineage_1\gen_1_folder\imgset\gen_1_image_shade'
+    img_all = []
+    for neuron in os.listdir(neuron_root):
+        neuron_path = os.path.join(neuron_root,neuron)
+        # print(neuron_path)
+        mat = scio.loadmat(neuron_path)
+        mat = mat['imgset']
+        mat = np.array(mat)
+        img_all.append(mat)
+    img_all = np.array(img_all)
+    print(img_all.shape)
